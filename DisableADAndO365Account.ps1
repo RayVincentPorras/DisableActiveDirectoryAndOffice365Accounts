@@ -34,6 +34,7 @@ Set-Mailbox $emailAddress –CustomAttribute1 “ ”
 Set-Mailbox $emailAddress -Type shared
 #Run sleep to allow office 365 time to convert the mailbox to a shared mailbox.
 Write-Host 'Converting mailbox to a shared mailbox. Please wait...'
-Start-Sleep -s 60
+#Pause script to allow time for the mailbox to convert to a shared mailbox before proceeding.
+Start-Sleep -s 120
 Set-MsolUserLicense -UserPrincipalName $emailAddress -RemoveLicenses "ExampleINC:EXCHANGESTANDARD"
 Write-Host 'The account has been terminated.' 
